@@ -26,6 +26,9 @@ inputs:
     description: Whether or not to validate the CF API's TLS certificate
     required: false
     default: true
+  command:
+    description: "Command to run using CF CLI"
+    required: true
   debug:
     description: Debug your deploy dir to list all folders
     required: false
@@ -36,3 +39,5 @@ inputs:
 runs:
   using: docker
   image: Dockerfile
+  args:
+    - ${{ inputs.command }}
