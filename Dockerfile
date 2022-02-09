@@ -1,11 +1,11 @@
-FROM alpine:3 AS download
-WORKDIR /
-RUN apk update \
- && apk add curl \
- && curl -sL 'https://packages.cloudfoundry.org/stable?release=linux64-binary&version=6.53.0&source=github-rel' | tar -xzv \
- && chmod 0755 cf
+FROM ubuntu:18.04
 
-FROM alpine:3
-COPY --from=download /cf /usr/bin/cf
-COPY entrypoint.sh /entrypoint.sh
+RUN apt-get update
+RUN apt-get install -y ca-certificates jq
+
+RUN echo "deb [trusted=yes] https://packages.cloudfoundry.org/debian stable main" > /etc/apt/sources.list.d/cloudfoundry-cli.list
+RUN apt-get update
+RUN apt-get install -y cf7-cli
+
+ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
