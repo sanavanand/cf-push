@@ -4,9 +4,6 @@ inputs:
   appdir:
     description: Set this parameter if you want to switch the working dir to push an app
     required: true
-  manifest:
-    description: The path to your CF application manifest
-    required: true
   api:
     description: The Cloud Foundry API endpoint
     required: true
