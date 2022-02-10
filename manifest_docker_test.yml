@@ -1,0 +1,12 @@
+applications:
+    - name: swlc-test-record-center
+      instances: 1
+      memory: 4096M
+      disk_quota: 4096M
+      host: swlc-test-record-center
+      domains:
+      - apps1-bg-int.icloud.intel.com
+
+# For deploying docker container via cf cli ,use the following command from CI machine
+#cf login -a  https://api.apps1-fm-int.icloud.intel.com -u vasanth.bharathi.venkata.subramanian@intel.com -p ******* -o scanTools -s Development
+#cf push -f "manifests\development\manifest.yml" -u process --docker-image gar-registry.caas.intel.com/scan-devops-images/cypressbackend_cypressservice:latest --docker-username $CI_DOCKER_USERNAME
