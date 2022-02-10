@@ -30,8 +30,9 @@ inputs:
     description: Debug your deploy dir to list all folders
     required: false
     default: false
-
-
+  dockerpass:
+    description: "docker password to login to hardor registery"
+    required: true
 
 runs:
   using: docker
