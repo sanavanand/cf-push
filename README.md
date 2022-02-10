@@ -26,7 +26,7 @@ jobs:
           space:    ${{ secrets.CF_SPACE }}
           username: ${{ secrets.CF_USERNAME }}
           password: ${{ secrets.CF_PASSWORD }}
-          manifest: manifest.yml
+          command: <cf push command>
           validate: true          # set to false if you don't want to validate ssl
 ```
 
@@ -59,7 +59,7 @@ jobs:
           space:    ${{ secrets.CF_SPACE }}
           username: ${{ secrets.CF_USERNAME }}
           password: ${{ secrets.CF_PASSWORD }}
-          manifest: manifest.yml
+          command: <cf push command>
           validate: true          
 ```
 
